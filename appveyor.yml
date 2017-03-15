@@ -1,3 +1,15 @@
-version: 1.0.{build}
-build:
-  verbosity: minimal
+version: 0.1.{build}
+pull_requests:
+  do_not_increment_build_number: true
+image: Visual Studio 2017
+build_script:
+- cmd: >-
+    dotnet restore .\AMI.AlexaAPI\AMI.AlexaAPI.csproj
+
+    dotnet restore .\AMI.AlexaAPI.Tests\AMI.AlexaAPI.Tests.csproj
+
+    dotnet build .\AMI.AlexaAPI\AMI.AlexaAPI.csproj
+
+    dotnet build .\AMI.AlexaAPI.Tests\AMI.AlexaAPI.Tests.csproj
+test_script:
+- cmd: dotnet test .\AMI.AlexaAPI.Tests\AMI.AlexaAPI.Tests.csproj
