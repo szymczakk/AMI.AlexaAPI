@@ -14,7 +14,7 @@ script:
 - ./travis-build.sh
 - ./run-tests.sh
 after_success:
-- after-build.sh
+- ./after-build.sh
 notifications:
   email:
     on_success: never
