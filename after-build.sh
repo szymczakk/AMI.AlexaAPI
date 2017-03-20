@@ -1,2 +1,5 @@
 #!/bin/bash
-echo 'This will be script for publishing build'
+if ["$TRAVIS_BRANCH" == "master"]; then
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+docker push rakaz/ami
+fi
