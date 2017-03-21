@@ -5,8 +5,8 @@ WORKDIR /app
 RUN ["dotnet", "restore", "--no-cache"]
 RUN ["dotnet", "build"]
 
-EXPOSE 5000/tcp
-ENV ASPNETCORE_URLS http://*:5000
+EXPOSE 80/tcp
+ENV ASPNETCORE_URLS http://*:80
 ENV ASPNETCORE_ENVIRONMENT docker
 
 ENTRYPOINT ["dotnet", "run"]
